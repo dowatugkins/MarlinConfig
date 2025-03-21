@@ -708,20 +708,20 @@
 // If there are fewer values, the last one applies to the remaining hotends.
 #define DEFAULT_Kp_LIST \
   {                     \
-    21.73, 21.73        \
+    29.3, 29.3        \
   }
 #define DEFAULT_Ki_LIST \
   {                     \
-    1.54, 1.54          \
+    1.99, 1.99          \
   }
 #define DEFAULT_Kd_LIST \
   {                     \
-    76.55, 76.55        \
+    107.7, 107.7        \
   }
 #else
-#define DEFAULT_Kp 21.73
-#define DEFAULT_Ki 1.54
-#define DEFAULT_Kd 76.55
+#define DEFAULT_Kp 29.3
+#define DEFAULT_Ki 1.99
+#define DEFAULT_Kd 107.7
 #endif
 #else
 #define BANG_MAX 255 // Limit hotend current while in bang-bang mode; 255=full current
@@ -828,9 +828,9 @@
 // #define MIN_BED_POWER 0
 // #define PID_BED_DEBUG // Print Bed PID debug data to the serial port.
 
-#define DEFAULT_bedKp 50.71
-#define DEFAULT_bedKi 9.88
-#define DEFAULT_bedKd 173.43
+#define DEFAULT_bedKp 122.7
+#define DEFAULT_bedKi 21.28
+#define DEFAULT_bedKd 471.7
 
 // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #else
@@ -891,8 +891,8 @@
 #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
                                 // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
-// #define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of flash)
-// #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of flash)
+#define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of flash)
+#define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of flash)
 #endif
 
 // @section safety
@@ -1713,7 +1713,7 @@
  */
 #define NOZZLE_TO_PROBE_OFFSET \
   {                            \
-    -48.58, -8.07, -1.750                  \
+    -48.58, -8.07, -2.20                 \
   }
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
@@ -2174,9 +2174,9 @@
  */
 // #define AUTO_BED_LEVELING_3POINT
 // #define AUTO_BED_LEVELING_LINEAR
-// #define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_BILINEAR
 // #define AUTO_BED_LEVELING_UBL
-#define MESH_BED_LEVELING
+// #define MESH_BED_LEVELING
 
 /**
  * Commands to execute at the end of G29 probing.
@@ -2257,7 +2257,7 @@
 #if ANY(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
 // Set the number of grid points per dimension.
-#define GRID_MAX_POINTS_X 5
+#define GRID_MAX_POINTS_X 3
 #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
 // Probe along the Y axis, advancing X after each column
